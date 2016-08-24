@@ -8,9 +8,9 @@ class User implements UserAcl
 {
     protected $id;
 
-    public function getRole() : string
+    public function getRole() : array
     {
-        return 'supervisor';
+        return ['id_role' => 0, 'is_admin' => 1];
     }
 
     public function getId() : int
@@ -18,7 +18,7 @@ class User implements UserAcl
         return $this->id;
     }
 
-    public function setId(int $id)
+    public function setId($id)
     {
         $this->id = $id;
     }

@@ -16,7 +16,7 @@ interface UserAcl
     /**
      * @return string
      */
-    public function getRole() : string;
+    public function getRole() : array;
 
     /**
      * @return int

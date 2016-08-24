@@ -14,7 +14,7 @@ class AclTest extends \PHPUnit_Framework_TestCase
         $permission = new Permission();
         $permission->setName('view');
 
-        $role = new Role('supervisor');
+        $role = new Role(0);
         $role->addPermission($permission);
         $roles[] = $role;
 
@@ -39,7 +39,7 @@ class AclTest extends \PHPUnit_Framework_TestCase
         $permission = new Permission();
         $permission->setName('view');
 
-        $role = new Role('supervisor');
+        $role = new Role(0);
         $role->addPermission($permission);
         $roles[] = $role;
 

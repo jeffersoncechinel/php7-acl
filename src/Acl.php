@@ -87,13 +87,13 @@ class Acl
     }
 
     /**
-     * @param string $role
+     * @param int $role
      * @return bool
      */
-    public function hasRole(string $role) : bool
+    public function hasRole(int $role) : bool
     {
         foreach ($this->roles as $r) {
-            if ($r->getName() === $role) {
+            if ($r->getRoleId() === $role) {
                 return true;
             }
         }
@@ -102,14 +102,14 @@ class Acl
     }
 
     /**
-     * @param string $role
+     * @param int $role
      * @param string $permission
      * @return bool
      */
-    public function hasPermission(string $role, string $permission) : bool
+    public function hasPermission(int $role, string $permission) : bool
     {
         foreach ($this->roles as $r) {
-            if ($r->getName() === $role) {
+            if ($r->getRoleId() === $role) {
                 foreach ($r->getPermissions() as $p) {
                     if ($p->getName() === $permission) {
                         return true;
@@ -134,11 +134,13 @@ class Acl
 
         if ($user) {
             $this->setUser($user);
-            return $this->hasPermission($this->user->getRole(), $permission);
+            $role = $this->user->getRole();
+            return $this->hasPermission($role['id_role'], $permission);
         }
 
         if ($this->user) {
-            return $this->hasPermission($this->user->getRole(), $permission);
+            $role = $this->user->getRole();
+            return $this->hasPermission($role['id_role'], $permission);
         }
 
         return false;

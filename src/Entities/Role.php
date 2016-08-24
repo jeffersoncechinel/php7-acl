@@ -18,7 +18,7 @@ class Role
     /**
      * @var string
      */
-    protected $name;
+    protected $roleId;
     /**
      * @var array
      */
@@ -26,29 +26,29 @@ class Role
 
     /**
      * Role constructor.
-     * @param string|null $name
+     * @param int|null $roleId
      */
-    public function __construct(string $name = null)
+    public function __construct(int $roleId = null)
     {
-        $this->name = $name;
+        $this->roleId = $roleId;
         $this->permissions = [];
     }
 
     /**
-     * @return string
+     * @return int
      */
-    public function getName(): string
+    public function getRoleId(): int
     {
-        return $this->name;
+        return $this->roleId;
     }
 
     /**
-     * @param string $name
+     * @param int $roleId
      * @return Role
      */
-    public function setName(string $name): Role
+    public function setRoleId(int $roleId): Role
     {
-        $this->name = $name;
+        $this->roleId = $roleId;
         return $this;
     }
 

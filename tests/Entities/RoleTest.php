@@ -15,15 +15,15 @@ class RoleTest extends \PHPUnit_Framework_TestCase
     public function testRoleName()
     {
         $role = new Role();
-        $role->setName('Jeff');
+        $role->setRoleId(0);
 
-        $this->assertEquals('Jeff', $role->getName());
+        $this->assertEquals(0, $role->getRoleId());
     }
 
     public function testRolePermissions()
     {
-        $role = new Role('supervisor');
-        $role->setName('Jeff');
+        $role = new Role();
+        $role->setRoleId(0);
 
         $permission = new Permission();
         $permission->setName('view');
